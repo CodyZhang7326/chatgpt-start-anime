@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#212121">
+  <title>ChatGPT / 启动序列</title>
+  <style>
+    :root{color-scheme:dark;background:#212121}*{box-sizing:border-box}
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#212121}
+    .player,.stage{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#212121}
+    canvas{width:100%;height:100%;object-fit:cover;display:block}
+    .permission-button{position:fixed;z-index:2;border:1px solid #c1a0df;background:#eeeaf4;color:#212121;font-family:"Microsoft YaHei","Segoe UI",sans-serif;letter-spacing:2px;cursor:pointer;transition:background .15s,box-shadow .15s;display:flex;align-items:center;justify-content:center;gap:20px;padding:0}
+    .permission-button[hidden]{display:none}.permission-button:hover{background:#d9c7ec;box-shadow:0 0 22px #c1a0df30}.permission-button:focus-visible{outline:2px solid #c1a0df;outline-offset:5px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+<link rel="icon" type="image/png" href="assets/chatgpt-icon.png"></head>
+<body>
+<main class="player" id="player">
+  <section class="stage" aria-label="ChatGPT 启动动画">
+    <canvas id="screen" width="1920" height="1080" role="img" aria-label="ChatGPT 启动动画：黑幕标识、档案授权、身份确认、轮廓描绘、环形核验、角色睁眼与欢迎。">你的浏览器不支持 Canvas，请使用现代浏览器播放。</canvas>
+    <button id="permissionButton" class="permission-button" type="button" hidden aria-label="申请访问许可，进入身份确认">申请访问许可 <span aria-hidden="true">→</span></button>
+    <p class="sr-only" id="status" aria-live="polite">启动序列</p>
+  </section>
+</main>
+<script src="assets/mark.js"></script>
+<script src="assets/eyes.js"></script>
+<script src="assets/portrait.js"></script>
+<script src="assets/rhine-sequence.js"></script>
+<script>
+(() => {
+  'use strict';
+  const canvas=document.getElementById('screen'),ctx=canvas.getContext('2d',{alpha:false});
+  const DURATION=ChatGPTRhine.duration,avatarReady=ChatGPTRhine.ready,stages=ChatGPTRhine.stages;
+  const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+  const $=id=>document.getElementById(id);
+  const render=ChatGPTRhine.render;
+  let lastAnnounced=-1;
+  const params=new URLSearchParams(location.search),review=params.has('review')||params.has('capture');
+  const gate=ChatGPTRhine.permissionGate,interactive=!params.has('capture')&&!params.has('linear'),permissionButton=$('permissionButton');
+  let permissionGranted=false,awaitingPermission=false,permissionIdle=0;
+  const requestedAudio=params.get('audio'),audioVariant=['voice','instrumental'].includes(requestedAudio)?requestedAudio:'rhine';
+  let position=0,playing=true,loop=false,sound=true,lastClock=performance.now(),raf=0,hiddenWasPlaying=false,recording=false;
+  let audioCtx=null,master=null,recordDestination=null,audioBuffer=null,source=null;
+  async function initAudio(){
+    if(!audioCtx){
+      const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)throw new Error('Web Audio unavailable');
+      audioCtx=new Audio();master=audioCtx.createGain();master.gain.value=.85;master.connect(audioCtx.destination);
+      recordDestination=audioCtx.createMediaStreamDestination();master.connect(recordDestination);
+    }
+    if(!audioBuffer){const response=await fetch(`assets/chatgpt-startup-${audioVariant}.wav`);if(!response.ok)throw new Error('Audio loading failed');audioBuffer=await audioCtx.decodeAudioData(await response.arrayBuffer())}
+    if(audioCtx.state==='suspended')await audioCtx.resume();return audioCtx;
+  }
+  function silence(){if(source){try{source.stop()}catch{}source.disconnect();source=null}}
+  function scheduleAudio(from){
+    silence();if(!sound||!playing||!audioBuffer||audioCtx?.state!=='running'||from>=DURATION)return;
+    source=audioCtx.createBufferSource();source.buffer=audioBuffer;source.connect(master);source.start(0,from/1000);
+  }
+  function ui(){
+    const found=stages.findIndex(s=>position<s.end),i=found===-1?stages.length-1:found;
+    if(i!==lastAnnounced){$('status').textContent=stages[i].cn;lastAnnounced=i}
+    permissionButton.hidden=!interactive||recording||permissionGranted||position<gate.showAt||position>=gate.nextAt;
+  }
+  function layoutPermissionButton(){
+    const r=canvas.getBoundingClientRect(),scale=Math.max(r.width/1920,r.height/1080);
+    Object.assign(permissionButton.style,{left:`${r.x+(r.width-1920*scale)/2+828*scale}px`,top:`${r.y+(r.height-1080*scale)/2+556*scale}px`,width:`${264*scale}px`,height:`${48*scale}px`,fontSize:`${16*scale}px`,gap:`${20*scale}px`});
+  }
+  async function acceptPermission(){
+    if(permissionButton.hidden||permissionGranted)return;
+    permissionGranted=true;awaitingPermission=false;permissionButton.hidden=true;
+    try{await initAudio()}catch{}
+    seek(gate.nextAt);setPlaying(true);
+  }
+  permissionButton.addEventListener('click',acceptPermission);window.addEventListener('resize',layoutPermissionButton);layoutPermissionButton();
+  function complete(){if(!review&&!recording)location.replace('terminal.html?from=startup')}
+  function tick(now){
+    const dt=now-lastClock,advancing=playing;lastClock=now;
+    if(playing){const previous=position;position+=dt;
+      if(interactive&&!recording&&!permissionGranted&&previous<gate.nextAt&&position>=gate.holdAt){position=gate.holdAt;playing=false;awaitingPermission=true;permissionIdle=0;silence()}
+      if(position>=DURATION){if(loop){position%=DURATION;permissionGranted=false;scheduleAudio(position)}else{position=DURATION;playing=false;silence();complete()}}
+    }
+    if(advancing){render(position);ui()}
+    else if(awaitingPermission&&!document.hidden){permissionIdle+=dt;ChatGPTRhine.renderPermissionIdle(permissionIdle)}
+    raf=requestAnimationFrame(tick);
+  }
+  function setPlaying(value){if(position>=DURATION&&value)position=0;playing=value;lastClock=performance.now();scheduleAudio(position);ui()}
+  function seek(ms){position=clamp(ms,0,DURATION);lastClock=performance.now();scheduleAudio(position);render(position);ui()}
+  function replay(){position=0;permissionGranted=false;awaitingPermission=false;setPlaying(true);render(0)}
+  async function enableAudio(){try{await initAudio();scheduleAudio(position)}catch{}}
+  async function toggleSound(){sound=!sound;if(sound)await enableAudio();else silence()}
+  document.addEventListener('keydown',e=>{
+    if(e.ctrlKey||e.metaKey||e.altKey)return;
+    if(e.key==='Escape'){silence();if(!review)location.replace('terminal.html?from=startup');else setPlaying(false)}
+    else if(e.key==='Enter'&&!permissionButton.hidden){e.preventDefault();acceptPermission()}
+    else if(review&&e.code==='Space'){e.preventDefault();setPlaying(!playing)}
+    else if(review&&e.key.toLowerCase()==='r')replay();
+    else if(e.key.toLowerCase()==='m')toggleSound();
+  });
+  document.addEventListener('pointerdown',enableAudio,{once:true});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){hiddenWasPlaying=playing;setPlaying(false)}else if(hiddenWasPlaying){hiddenWasPlaying=false;setPlaying(true)}});
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)');if(reduce.matches){position=ChatGPTRhine.toPlaybackTime(22200);playing=false}
+  window.ChatGPTBoot={duration:DURATION,ready:avatarReady,render,seek,pause:()=>setPlaying(false),play:()=>setPlaying(true),replay,setLoop:value=>loop=!!value,get state(){return{position,playing,loop,sound,audioVariant,awaitingPermission,permissionGranted}},
+    async record(){
+      if(typeof MediaRecorder==='undefined'||!canvas.captureStream)throw new Error('Video recording unavailable');
+      recording=true;setPlaying(false);await avatarReady;await initAudio();const oldSound=sound,oldLoop=loop;sound=false;loop=false;position=0;render(0);
+      const stream=canvas.captureStream(60);
+      const mime=['video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm'].find(m=>MediaRecorder.isTypeSupported(m));
+      const recorder=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:12000000});
+      const chunks=[];recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};
+      const done=new Promise((resolve,reject)=>{recorder.onstop=()=>resolve(new Blob(chunks,{type:mime}));recorder.onerror=e=>reject(e.error)});
+      recorder.start();replay();await new Promise(resolve=>setTimeout(resolve,DURATION+180));recorder.stop();const blob=await done;
+      stream.getTracks().forEach(track=>track.stop());sound=oldSound;loop=oldLoop;recording=false;silence();return blob;
+    }
+  };
+  render(position);ui();avatarReady.then(()=>{if(!playing)render(position)});raf=requestAnimationFrame(tick);enableAudio();
+
+})();
+</script>
+</body>
+</html>
+

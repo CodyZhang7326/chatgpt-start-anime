@@ -1,0 +1,39 @@
+{
+  "sampleRate": 48000,
+  "seconds": 24,
+  "firstTransitionEffects": false,
+  "peakDbFS": -5.303881643007085,
+  "rmsDbFS": -29.091873500552307,
+  "cues": [
+    {
+      "file": "line-1",
+      "start": 3.84,
+      "duration": 2
+    },
+    {
+      "file": "line-2",
+      "start": 6.44,
+      "duration": 1.2
+    },
+    {
+      "file": "line-3",
+      "start": 8.94,
+      "duration": 1.1100208333333332
+    },
+    {
+      "file": "line-4",
+      "start": 11.34,
+      "duration": 1.22
+    },
+    {
+      "file": "line-5",
+      "start": 13.84,
+      "duration": 1.74
+    },
+    {
+      "file": "chatgpt-original-ending.wav",
+      "start": 21.25,
+      "duration": 2.75
+    }
+  ]
+}

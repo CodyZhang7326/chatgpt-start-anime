@@ -1,0 +1,22 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "reference": {
+    "title": "deepseek专业工作模式【4K/60FPS】",
+    "workshopId": "3816462474",
+    "purpose": "Framing, lighting and line-to-portrait awakening reference only; no reference video or sound used in the result."
+  },
+  "assets": [
+    {
+      "file": "chatgpt-cinematic.png",
+      "mode": "identity-preserve",
+      "reference": "chatgpt-operator.png",
+      "prompt": "Use case: identity-preserve / cinematic UI background. Image 1 is the EXACT IDENTITY REFERENCE: preserve this same adult female anime dragon assistant, recognizable face, very long silver-white hair, pale lavender eyes, white ridged horns, pointed ear, silver knot hair ornament and delicate white/lavender high-collar costume. Image 2 is ONLY a framing and lighting reference from the user's desktop wallpaper: use its immersive face close-up emerging from a dark interface, never its blue-haired character or any text/logo. Make a new production background plate for a ChatGPT startup sequence. Wide 16:9 composition, 1920x1080 or higher. The RIGHT 55% holds a large, beautifully detailed head-and-shoulders close-up of the woman from Image 1, both lavender eyes OPEN and visible, gentle calm gaze toward viewer, head slightly turned toward the empty left side, her face centered around x=77%, y=48%, white hair strands flowing across the bottom/right edge, one or both horns and silver knot ornament visible. Keep an elegant adult anime face, NOT a chibi or child. Fine high quality anime rendering with dimensional hair and polished pale silver details, sophisticated game cinematic quality. The LEFT 43% is almost empty flat dark charcoal #212121 for live typography. Overall DARK EXPOSURE: cool charcoal shadows with lavender rim light on hair and a restrained soft violet reflection inside the eyes; white hair is silver in shadow, not pure-white cutout brightness. Seamlessly integrate the character into the same charcoal environment; shadows merge gently with the left and lower background, natural fine hair edges, no rectangle, no visible cutout edge, no portrait card, no frame. Subtle atmospheric depth without big nebulae or fantasy clouds. Palette ONLY charcoal black, silver-white, lavender/purple; absolutely no cyan, green, blue, gold, or warm orange lighting. Preserve the user's character identity and characteristic horn/hair ornament. No text of any kind, no logos, no UI lines, no watermark, no data graphics; those are drawn in code. Opaque full-frame cinematic background, not transparent. Avoid full-body composition, distant small figure, extreme blur, overexposed skin, excessive particles, busy background."
+    },
+    {
+      "file": "chatgpt-cinematic-blink.png",
+      "mode": "precise-object-edit",
+      "reference": "chatgpt-cinematic.png",
+      "prompt": "Use case: precise-object-edit / identity-preserve. This is the exact production background plate for a blink and awakening animation. Change ONLY both eyes to gently CLOSED eyelids, retaining the same relaxed expression, mouth, face, silver-white hair, horns, ornaments, lighting, dark charcoal background, purple highlights, clothes, framing and every other object. The open-eye input and closed-eye result will crossfade in a live animated UI, so preserve EXACT PIXEL ALIGNMENT, image dimensions, camera angle, facial proportions, crop, colors and all pixels outside the tiny eyelid areas. No head motion, no hair changes, no extra text, no logo, no watermark, no redesign. Same full landscape canvas and same opaque background. Only close the eyes."
+    }
+  ]
+}

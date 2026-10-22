@@ -1,0 +1,22 @@
+{
+  "kind": "original-electronic-ending",
+  "source": "codex-boot.mp4",
+  "sourceSHA256": "ab358dbafc21974e5bed5582274a1f86ea973083573192302be33c40cb3c44cb",
+  "sourceRangeSeconds": [
+    21.25,
+    24.0
+  ],
+  "playAtSeconds": 21.25,
+  "durationSeconds": 2.75,
+  "tempo": 1.0,
+  "pitchPreserved": true,
+  "method": "Extracted from the first exported animation without changing pitch, speed or gain; silent padding to 24 seconds.",
+  "earliestRecordingMatch": {
+    "correlation": 0.9959639310836792,
+    "mainFrequenciesHz": [
+      523.19,
+      783.94,
+      1046.39
+    ]
+  }
+}

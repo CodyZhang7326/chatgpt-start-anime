@@ -1,0 +1,25 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "mode": "precise-object-edit",
+  "references": [
+    "chatgpt-cinematic.png",
+    "chatgpt-cinematic-blink.png"
+  ],
+  "assets": [
+    {
+      "file": "chatgpt-cinematic-blink-25.png",
+      "closure": 25,
+      "prompt": "Use case: precise-object-edit. Edit target: image 1, the exact open-eye production frame. Supporting image 2: the fully closed eye endpoint of the SAME character. Produce ONE full landscape image that is an in-between animation keyframe, BOTH upper eyelids 25% of the way from the open state to the closed state (75% of normal eye opening remains). Lower lids stay almost fixed; upper lashes descend naturally over lavender irises. Preserve relaxed expression, natural anime eyelashes, same tilted eye angle. This is a precise blink intermediate, not a new drawing or redesign. Change ONLY the eyelids and visible iris portions inside the two small eye regions. Preserve EXACT PIXEL ALIGNMENT, 1672x941 canvas framing, identical face size/position, head tilt, mouth, nose, eyebrows, hair strands, horns, knot ornament, lighting, colors, costume and background. Everything outside the eye areas must remain identical to image 1. No camera movement, no eyebrow movement, no squinting emotion, no new objects, no text, no logos, no watermark, no borders, no grid; a SINGLE full image only."
+    },
+    {
+      "file": "chatgpt-cinematic-blink-50.png",
+      "closure": 50,
+      "prompt": "Use case: precise-object-edit. Edit target: image 1, the exact open-eye production frame. Supporting image 2: the fully closed eye endpoint of the SAME character. Produce ONE full landscape image that is an in-between animation keyframe, BOTH upper eyelids 50% of the way from the open state to the closed state (50% of normal eye opening remains). Lower lids stay almost fixed; upper lashes descend naturally over lavender irises. Preserve relaxed expression, natural anime eyelashes, same tilted eye angle. This is a precise blink intermediate, not a new drawing or redesign. Change ONLY the eyelids and visible iris portions inside the two small eye regions. Preserve EXACT PIXEL ALIGNMENT, 1672x941 canvas framing, identical face size/position, head tilt, mouth, nose, eyebrows, hair strands, horns, knot ornament, lighting, colors, costume and background. Everything outside the eye areas must remain identical to image 1. No camera movement, no eyebrow movement, no squinting emotion, no new objects, no text, no logos, no watermark, no borders, no grid; a SINGLE full image only."
+    },
+    {
+      "file": "chatgpt-cinematic-blink-75.png",
+      "closure": 75,
+      "prompt": "Use case: precise-object-edit. Edit target: image 1, the exact open-eye production frame. Supporting image 2: the fully closed eye endpoint of the SAME character. Produce ONE full landscape image that is an in-between animation keyframe, BOTH upper eyelids 75% of the way from the open state to the closed state (25% of normal eye opening remains). Lower lids stay almost fixed; upper lashes descend naturally over lavender irises. Preserve relaxed expression, natural anime eyelashes, same tilted eye angle. This is a precise blink intermediate, not a new drawing or redesign. Change ONLY the eyelids and visible iris portions inside the two small eye regions. Preserve EXACT PIXEL ALIGNMENT, 1672x941 canvas framing, identical face size/position, head tilt, mouth, nose, eyebrows, hair strands, horns, knot ornament, lighting, colors, costume and background. Everything outside the eye areas must remain identical to image 1. No camera movement, no eyebrow movement, no squinting emotion, no new objects, no text, no logos, no watermark, no borders, no grid; a SINGLE full image only."
+    }
+  ]
+}

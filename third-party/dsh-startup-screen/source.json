@@ -1,0 +1,98 @@
+{
+  "repository": "https://github.com/6shenhonghong9/dsh-startup-screen",
+  "commit": "8ec3132e69f0906b3ed2f7eb083b1035cd69c1d4",
+  "video": "https://www.bilibili.com/video/BV1erpE6qEPU/",
+  "title": "莱茵生命DeepSeekHarness启动动画",
+  "samples": [
+    {
+      "file": "line-1.mp3",
+      "sha256": "EC3AFE38D6DF4664A8948B4046E4C124C534F27092E97DFC3948E11FF8212934",
+      "originalSha256": "EC3AFE38D6DF4664A8948B4046E4C124C534F27092E97DFC3948E11FF8212934"
+    },
+    {
+      "file": "line-2.mp3",
+      "sha256": "8D045168D150FF57C5F15AF14644EAABA0D244694E3FAE0BA31313A2C57C6D44",
+      "originalSha256": "8D045168D150FF57C5F15AF14644EAABA0D244694E3FAE0BA31313A2C57C6D44"
+    },
+    {
+      "file": "line-3.mp3",
+      "sha256": "C490D5218F36F51680E9B9E02BDB6CA285EF0E0CA13F04C491A53E1308470680",
+      "originalSha256": "C490D5218F36F51680E9B9E02BDB6CA285EF0E0CA13F04C491A53E1308470680"
+    },
+    {
+      "file": "line-4.mp3",
+      "sha256": "BBFA0D757843451DF6E7D306630BF582657DEA36F2C4952BB2773496DD5D4637",
+      "originalSha256": "BBFA0D757843451DF6E7D306630BF582657DEA36F2C4952BB2773496DD5D4637"
+    },
+    {
+      "file": "line-5.mp3",
+      "sha256": "97BE9C44591AF6F3EF0B7B8788F960E07DF684E41236661DD9D2294639F2AE31",
+      "originalSha256": "97BE9C44591AF6F3EF0B7B8788F960E07DF684E41236661DD9D2294639F2AE31"
+    },
+    {
+      "file": "line-6.mp3",
+      "sha256": "1CD13250722C1823326536D981C07D9E167E217C0B2559A80B5FB263EBB87633",
+      "originalSha256": "1CD13250722C1823326536D981C07D9E167E217C0B2559A80B5FB263EBB87633"
+    },
+    {
+      "file": "sfx-tick.mp3",
+      "sha256": "4B808E21D8F4751D3BA20BFE58FC754B832694B48BF62B408B86A7A4A97E5804",
+      "originalSha256": "4B808E21D8F4751D3BA20BFE58FC754B832694B48BF62B408B86A7A4A97E5804"
+    },
+    {
+      "file": "sfx-ticks-run.mp3",
+      "sha256": "6938B409BE952FB60B1A56D2162EFFA2F631254D05A25FD69BE76233A7F8DD9F",
+      "originalSha256": "6938B409BE952FB60B1A56D2162EFFA2F631254D05A25FD69BE76233A7F8DD9F"
+    }
+  ],
+  "audioMatch": [
+    {
+      "file": "line-1.mp3",
+      "duration": 2.0,
+      "videoMatchAt": 5.056,
+      "correlation": 0.854
+    },
+    {
+      "file": "line-2.mp3",
+      "duration": 1.2,
+      "videoMatchAt": 7.848,
+      "correlation": 0.888
+    },
+    {
+      "file": "line-3.mp3",
+      "duration": 1.11,
+      "videoMatchAt": 10.048,
+      "correlation": 0.867
+    },
+    {
+      "file": "line-4.mp3",
+      "duration": 1.22,
+      "videoMatchAt": 11.408,
+      "correlation": 0.871
+    },
+    {
+      "file": "line-5.mp3",
+      "duration": 1.74,
+      "videoMatchAt": 12.877,
+      "correlation": 0.845
+    },
+    {
+      "file": "line-6.mp3",
+      "duration": 0.565,
+      "videoMatchAt": 14.867,
+      "correlation": 0.874
+    },
+    {
+      "file": "sfx-tick.mp3",
+      "duration": 0.041,
+      "videoMatchAt": 12.881,
+      "correlation": 0.25
+    },
+    {
+      "file": "sfx-ticks-run.mp3",
+      "duration": 0.47,
+      "videoMatchAt": 6.663,
+      "correlation": 0.053
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "reference": "codex-reference.jpg",
+  "assets": [
+    {
+      "file": "codex-operator.png",
+      "mode": "edit",
+      "prompt": "Use case: identity-preserve and background-extraction. This supplied image is the EDIT TARGET and the exact identity reference for the user's female CODEX avatar. Preserve this same adult female anime dragon character: same face and pale lavender eyes, very long flowing white/silver hair, the same two white curved horns, pointed ears, pale lavender bat-like dragon wings, large fluffy scaled white/lavender tail, elegant white high-collared long dress, silver knot-shaped ornaments and detailed draped sleeves. Make a refined production-ready full-body cutout for a tactical science-fiction research terminal interface inspired by Arknights. Maintain her unmistakable identity, white-lavender palette, adult feminine proportions and fine graceful anime linework. Only modestly adapt clothing: subtle asymmetric white technical shoulder cape and restrained graphite/muted-jade seams on the otherwise elegant white outfit; very small precise silver clasps and translucent pale-jade data charm at the waist. Do not replace the dress with a completely different outfit, do not shorten hair, do not remove horns/wings/tail, do not change eye color, do not masculinize. Keep pose close to original: one hand near collar, other relaxed open hand, inviting calm attentive expression. Improve facial and hand clarity while keeping original character design. Keep the ENTIRE figure, both horns, full spread wings, tail, flowing dress and both feet inside the canvas with clear margin. Remove the white background and output a GENUINELY transparent alpha background, no painted environment, no colored background, no gradient backdrop, no ground shadow, no floor, no watermark, no captions. Portrait composition. The image will be displayed over a pale laboratory UI; clean silhouette, crisp beautifully detailed illustration, tasteful soft violet inner shadows. Transparent PNG asset, single figure.",
+      "stage": "initial artwork"
+    },
+    {
+      "file": "codex-operator-blink.png",
+      "mode": "edit",
+      "reference": "codex-operator.png",
+      "prompt": "This image is an EDIT TARGET for a character blink animation frame. Make one extremely precise local edit: CLOSE ONLY BOTH EYES with a relaxed natural blink (thin curved upper eyelashes, eyelids softly closed). Preserve the exact same female white-haired dragon character and exact pixel alignment of her face, head, horns, hair strands, pose, clothes, body, wings, tail, hands, ornament positions, lighting, dimensions, framing, scale, and transparent alpha background. Do not change her mouth or expression except closing the eyes. The edited frame will be overlaid on the open-eyes frame, so absolutely no repositioning, redesign or new objects. Keep the image genuinely transparent with no background and no watermark. All other areas identical to input. Same 1024x1536 portrait canvas.",
+      "stage": "initial artwork"
+    },
+    {
+      "file": "chatgpt-operator.png",
+      "reference": "codex-operator.png",
+      "stage": "final lavender palette",
+      "mode": "edit",
+      "prompt": "EDIT ONLY THE ACCENT COLORS of this exact transparent character image. Change all mint-green/jade glowing data charms, small green accessory insets, and any green technical trim to pale LAVENDER / soft violet, harmonizing with her existing purple eyes and wing membranes. Preserve EVERY other pixel as closely as possible: exact female identity, face, eye state, pose, white/silver hair, horns, wings, fluffy tail, garment design, silver ornaments, lighting, transparent alpha background, dimensions, scale and positioning. Do not redraw or change the silhouette. Do not add a backdrop. The image is an animation frame and must remain pixel-aligned. Keep the current eyes exactly as they are in this input (open stays open, closed stays closed). White, silver and lilac only; absolutely no mint-green accents. Same 1024x1536 canvas, genuine transparency."
+    },
+    {
+      "file": "chatgpt-operator-blink.png",
+      "reference": "codex-operator-blink.png",
+      "stage": "final lavender palette",
+      "mode": "edit",
+      "prompt": "EDIT ONLY THE ACCENT COLORS of this exact transparent character image. Change all mint-green/jade glowing data charms, small green accessory insets, and any green technical trim to pale LAVENDER / soft violet, harmonizing with her existing purple eyes and wing membranes. Preserve EVERY other pixel as closely as possible: exact female identity, face, eye state, pose, white/silver hair, horns, wings, fluffy tail, garment design, silver ornaments, lighting, transparent alpha background, dimensions, scale and positioning. Do not redraw or change the silhouette. Do not add a backdrop. The image is an animation frame and must remain pixel-aligned. Keep the current eyes exactly as they are in this input (open stays open, closed stays closed). White, silver and lilac only; absolutely no mint-green accents. Same 1024x1536 canvas, genuine transparency."
+    }
+  ]
+}

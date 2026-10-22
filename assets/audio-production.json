@@ -1,0 +1,39 @@
+{
+  "method": "Original deterministic electronic synthesis; no game audio or environmental samples used.",
+  "voiceMethod": "Microsoft neural TTS through edge-tts; stock female voice, not a cloned actor.",
+  "voiceCues": [
+    {
+      "text": "连接已建立。",
+      "start": 17.35,
+      "duration": 1.336,
+      "voice": "zh-CN-XiaoxiaoNeural"
+    },
+    {
+      "text": "欢迎回来。",
+      "start": 21.25,
+      "duration": 1.076,
+      "voice": "zh-CN-XiaoxiaoNeural"
+    }
+  ],
+  "variants": {
+    "instrumental": {
+      "file": "assets\\chatgpt-startup-instrumental.wav",
+      "duration": 24,
+      "sampleRate": 48000,
+      "peakDbFS": -11.58,
+      "rmsDbFS": -26.34
+    },
+    "voice": {
+      "file": "assets\\chatgpt-startup-voice.wav",
+      "duration": 24,
+      "sampleRate": 48000,
+      "peakDbFS": -6.33,
+      "rmsDbFS": -25.05
+    }
+  },
+  "direction": "Dry electronic relays, stable low-frequency harmonics, restrained stereo chords, soft final release. No water, bubbles or rounded chirp sequence.",
+  "references": [
+    "https://monster-siren.hypergryph.com/music",
+    "https://www.youtube.com/watch?v=9pKj3PnHw3Y"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "videoSHA256": "60cc355a3417e4e22e8b420b5f86b3bbe5bdd408a378b2d3a9e82c554fc53fbf",
+  "showAt": 5.25,
+  "holdAt": 5.95,
+  "nextAt": 6.2,
+  "idleSHA256": "251304adef8504143349b18316561ded8ab61aaab9250012e8df3375fc8706a6",
+  "idleSeconds": 4.8
+}

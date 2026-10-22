@@ -1,0 +1,14 @@
+{
+  "name": "chatgpt-startup-animation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rhine-inspired startup animation, local terminal and Windows launcher",
+  "scripts": {
+    "start": "node server.cjs",
+    "render": "node tools/render-rhine.cjs",
+    "compose:rhine": "node tools/compose-rhine-audio.cjs",
+    "render:legacy-audio": "node tools/render-video.cjs"
+  },
+  "engines": { "node": ">=20" },
+  "devDependencies": { "playwright": "1.62.1" }
+}

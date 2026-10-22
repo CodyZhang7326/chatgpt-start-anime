@@ -1,0 +1,16 @@
+{
+  "text": "Welcome",
+  "source": "assets/rhine-audio/line-6.mp3",
+  "tempo": 0.55,
+  "pitchPreserved": false,
+  "formantsPreserved": true,
+  "pitchSemitones": {
+    "start": -1.5,
+    "end": -3.5
+  },
+  "pitchDescentSourceSeconds": [
+    0.12,
+    0.46
+  ],
+  "method": "Original reference sample, slower tempo with a smooth downward pitch contour; no generated replacement voice."
+}
